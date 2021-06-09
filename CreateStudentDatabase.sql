@@ -23,11 +23,11 @@ IF OBJECT_ID('Students', 'U') IS NULL
 CREATE TABLE Students (
 	StudentID varchar(900) NOT NULL PRIMARY KEY,
 	FamilyID varchar(900),
-	LastName varchar(8000),
-	FirstName varchar(8000),
+	LastName nvarchar(4000),
+	FirstName nvarchar(4000),
 	Homeroom varchar(255),
-	StudentEmail varchar(8000),
-	KioskPersonalMessage varchar(8000),
+	StudentEmail varchar(4000),
+	KioskPersonalMessage nvarchar(4000),
 	KioskMessageStartDate datetime2(0),
 	KioskMessageExpiryDate datetime2(0),
 );
@@ -37,12 +37,12 @@ PRINT('Students table already exists.');
 IF OBJECT_ID('Families', 'U') IS NULL
 CREATE TABLE Families (
 	FamilyID varchar(900) NOT NULL PRIMARY KEY,
-	Parent1FirstName varchar(8000),
-	Parent1LastName varchar(8000),
-	Parent1Email varchar(8000),
-	Parent2FirstName varchar(8000),
-	Parent2LastName varchar(8000),
-	Parent2Email varchar(8000),
+	Parent1FirstName nvarchar(4000),
+	Parent1LastName nvarchar(4000),
+	Parent1Email varchar(4000),
+	Parent2FirstName nvarchar(4000),
+	Parent2LastName nvarchar(4000),
+	Parent2Email varchar(4000),
 );
 ELSE
 PRINT('Families table already exists.');
@@ -50,8 +50,8 @@ PRINT('Families table already exists.');
 IF OBJECT_ID('AttendanceLog', 'U') IS NULL
 CREATE TABLE AttendanceLog (
 	LogTime datetime2(2),
-	StudentID varchar(8000),
-	ScanLocation varchar(8000),
+	StudentID varchar(900),
+	ScanLocation varchar(4000),
 	ScanType tinyint,
 	/*
 	Scan Types:
@@ -66,7 +66,7 @@ PRINT('AttendanceLog table already exists.');
 IF OBJECT_ID('KioskPublicMessages', 'U') IS NULL
 CREATE TABLE KioskPublicMessages (
 	DisplayOrder int,
-	DisplayMessage varchar(8000),
+	DisplayMessage nvarchar(4000),
 	StartDate datetime2(0),
 	ExpiryDate datetime2(0),
 );
